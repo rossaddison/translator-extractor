@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\TranslatorExtractor\Tests;
 
+use PHPUnit\Framework\Attributes\Before;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
@@ -18,8 +19,6 @@ final class ExtractorTest extends TestCase
 {
     private Extractor $extractor;
     private ConsoleOutputInterface $output;
-
-    /** @var CategorySource[] */
     private array $categorySource;
 
     private array $correctMessagesApp = [
@@ -37,9 +36,9 @@ final class ExtractorTest extends TestCase
         'test2' => ['message' => 'test2'],
     ];
 
-    protected function setUp(): void
+    #[Before]
+    public function setUp(): void
     {
-        parent::setUp();
         $this->output = new ConsoleOutput();
         $this->output->setVerbosity(OutputInterface::VERBOSITY_QUIET);
     }

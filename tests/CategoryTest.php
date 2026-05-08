@@ -9,12 +9,11 @@ use RuntimeException;
 use Yiisoft\TranslatorExtractor\CategorySource;
 use Yiisoft\Translator\MessageReaderInterface;
 use Yiisoft\Translator\MessageWriterInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 final class CategoryTest extends TestCase
 {
-    /**
-     * @dataProvider nameProvider
-     */
+    #[DataProvider('nameProvider')]
     public function testName(string $categoryName): void
     {
         $this->assertInstanceOf(CategorySource::class, new CategorySource(
@@ -24,10 +23,7 @@ final class CategoryTest extends TestCase
         ));
     }
 
-    /**
-     * @return \string[][]
-     */
-    public function nameProvider(): array
+    public static function nameProvider(): array
     {
         return [
             ['testcategoryname'],

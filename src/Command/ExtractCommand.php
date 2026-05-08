@@ -25,6 +25,7 @@ final class ExtractCommand extends Command
         parent::__construct();
     }
 
+    #[\Override]
     protected function configure(): void
     {
         $this
@@ -36,6 +37,7 @@ final class ExtractCommand extends Command
             ->setHelp('This command Extracts translator IDs from files within a given path.');
     }
 
+    #[\Override]
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var string */

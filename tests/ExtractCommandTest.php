@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\TranslatorExtractor\Tests;
 
+use PHPUnit\Framework\Attributes\Before;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
@@ -21,10 +22,9 @@ final class ExtractCommandTest extends TestCase
     private Application $application;
     private CommandTester $command;
 
-    protected function setUp(): void
+    #[Before]
+    public function setUp(): void
     {
-        parent::setUp();
-
         $this->configContainer($this->getDefinitions());
 
         $this->command = new CommandTester($this->application->find('translator/extract'));

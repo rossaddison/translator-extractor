@@ -140,10 +140,11 @@ final class Extractor
     private function applyRoot(?array $list, string $rootFolder): ?array
     {
         if (is_array($list)) {
-            return array_map(
-                static fn (string $except): string => preg_replace('#^\./#', $rootFolder . '/', $except),
+            $result = array_map(
+                static fn (string $except): string|null => preg_replace('#^\./#', $rootFolder . '/', $except),
                 $list
             );
+            return array_filter($result, static fn (?string $value): bool => $value !== null);
         }
 
         return $list;

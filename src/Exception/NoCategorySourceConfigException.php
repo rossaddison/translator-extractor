@@ -7,13 +7,15 @@ namespace Yiisoft\TranslatorExtractor\Exception;
 use RuntimeException;
 use Yiisoft\FriendlyException\FriendlyExceptionInterface;
 
-class NoCategorySourceConfigException extends RuntimeException implements FriendlyExceptionInterface
+final class NoCategorySourceConfigException extends RuntimeException implements FriendlyExceptionInterface
 {
+    #[\Override]
     public function getName(): string
     {
         return 'Please provide a list of CategorySource';
     }
 
+    #[\Override]
     public function getSolution(): ?string
     {
         return <<<'SOLUTION'

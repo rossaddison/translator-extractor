@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\TranslatorExtractor\Tests;
 
+use PHPUnit\Framework\Attributes\Before;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\ConsoleOutputInterface;
@@ -15,15 +16,13 @@ use Yiisoft\TranslatorExtractor\Extractor;
 
 final class CustomCallTest extends TestCase
 {
-    /** @var CategorySource[] */
     private array $categorySource;
     private Extractor $extractor;
     private ConsoleOutputInterface $output;
 
-    protected function setUp(): void
+    #[Before]
+    public function setUp(): void
     {
-        parent::setUp();
-
         $this->output = new ConsoleOutput();
         $this->output->setVerbosity(OutputInterface::VERBOSITY_QUIET);
     }
