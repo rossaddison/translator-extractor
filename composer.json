@@ -1,5 +1,5 @@
 {
-    "name": "yiisoft/translator-extractor",
+    "name": "rossaddison/translator-extractor",
     "type": "library",
     "description": "Yii message extractor",
     "keywords": [
