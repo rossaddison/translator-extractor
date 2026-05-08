@@ -12,3 +12,4 @@ jobs:
         ['ubuntu-latest']
       php: >-
         ['8.2']
+      beforeHook: 'git fetch --tags'
