@@ -6,10 +6,9 @@ name: backwards compatibility
 
 jobs:
   roave_bc_check:
-    uses: yiisoft/actions/.github/workflows/bc.yml@master
+    uses: roave/backward-compatibility-check-action@v2.4.0
     with:
       os: >-
         ['ubuntu-latest']
       php: >-
         ['8.2']
-      beforeHook: 'git fetch --tags'
